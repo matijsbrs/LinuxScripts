@@ -3,7 +3,7 @@
 echo "Drop caches"
 echo 3 > /proc/sys/vm/drop_caches
 
-/usr/local/Behrens/Scripts/LogProcesses.sh
+./LogProcesses.sh
 
 MemFree=`cat /proc/meminfo | grep MemFree | awk {'print $2'}`
 SwapFree=`cat /proc/meminfo | grep SwapFree | awk {'print $2'}`
@@ -20,7 +20,7 @@ then
 	echo "Enough free ram to clear swap";
 	echo "Starting Swap cleanup."
 	swapoff -a && dphys-swapfile swapon && echo "Cleanup succeded"
-	/usr/local/Behrens/Scripts/LogProcesses.sh
+	./LogProcesses.sh
 fi
 
 
